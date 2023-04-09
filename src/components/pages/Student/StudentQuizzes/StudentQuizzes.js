@@ -78,7 +78,7 @@ const StudentQuizzes = () => {
     setForm({
       ...form,
       student_name: user.name,
-      student_id: user.id,
+      student_id: user._id,
       video_id,
       video_title,
       totalQuiz: videoQuizzes?.length,
