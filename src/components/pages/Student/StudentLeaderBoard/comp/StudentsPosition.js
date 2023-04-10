@@ -12,7 +12,7 @@ const StudentsPosition = ({ user }) => {
     <>
       <tr
         className={`border-b ${
-          loggedInUser?.id === thisUser?.id
+          loggedInUser?._id === thisUser?._id
             ? "border-2 border-cyan"
             : "border-slate-600/50"
         }`}
