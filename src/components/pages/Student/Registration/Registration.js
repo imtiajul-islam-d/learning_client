@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../../../../features/auth/authApi";
 import Error from "../../../../utils/Error";
+import { toast } from "react-hot-toast";
 
 const Registration = () => {
   const [register, { isLoading, isSuccess, isError, error }] =
@@ -28,6 +29,8 @@ const Registration = () => {
         password: form?.password,
         role: "student",
       });
+    }else{
+      toast.error("Password does not matched!")
     }
   };
   useEffect(() => {
