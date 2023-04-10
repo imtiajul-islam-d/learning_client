@@ -41,6 +41,7 @@ const StudentQuizzes = () => {
         return 1;
       }
     });
+    console.log(number);
     const res = number.reduce((prev, next) => prev + next, 0);
     setCorrectAns(res);
   }, [score]);
@@ -65,7 +66,7 @@ const StudentQuizzes = () => {
   const { video_id, video_title } = obj;
   const [form, setForm] = useState({
     student_name: user.name,
-    student_id: user.id,
+    student_id: user._id,
     video_id,
     video_title,
     totalQuiz: videoQuizzes?.length,
@@ -98,7 +99,7 @@ const StudentQuizzes = () => {
     content = <Error message={"No quizzes found!"} />;
   if (!isLoading && !isError && videoQuizzes?.length > 0) {
     content = videoQuizzes?.map((q, idx) => (
-      <Quiz key={q?.id} quiz={q} idx={idx} />
+      <Quiz key={q?._id} quiz={q} idx={idx} />
     ));
   }
 

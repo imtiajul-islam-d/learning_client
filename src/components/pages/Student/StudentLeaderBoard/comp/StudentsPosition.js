@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const StudentsPosition = ({ user }) => {
   const { user: loggedInUser } = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.leaderBoard);
-  const thisUser = users?.find((u) => u.id === user?.id);
+  const thisUser = users?.find((u) => u._id === user?._id);
   // console.log(thisUser);
   const { name, assignmentMarks, quizMarks, totalMarks, position } =
     thisUser || {};

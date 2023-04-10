@@ -42,13 +42,13 @@ const StudentLeaderBoard = () => {
     // calculate total assignment marks
     const a = assignmentMarks.slice();
     let totalAssignmentMarks = a
-      ?.filter((aa) => aa?.student_id === user?.id)
+      ?.filter((aa) => aa?.student_id === user?._id)
       ?.reduce((current, next) => current + next?.mark, 0);
     // calculate total quiz marks
     const q = quizMarks?.slice();
 
     const qResult = q
-      ?.filter((qu) => qu?.student_id === user?.id)
+      ?.filter((qu) => qu?.student_id === user?._id)
       ?.reduce((current, next) => {
         // console.log(quizMarks);
         return current + next?.mark;
@@ -58,7 +58,7 @@ const StudentLeaderBoard = () => {
     //   console.log(quizMarks?.student_id, name, id);
     dispatch(
       modifyUser({
-        id: user?.id,
+        id: user?._id,
         quizMarks: qResult,
         assignmentMarks: totalAssignmentMarks,
         totalMarks,

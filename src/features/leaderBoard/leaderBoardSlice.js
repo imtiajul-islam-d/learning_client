@@ -14,7 +14,7 @@ const LeaderboardSlice = createSlice({
     },
     modifyUser: (state, action) => {
       const newUsers = state.users.map((user) => {
-        if (user?.id === action.payload.id) {
+        if (user?._id === action.payload.id) {
           return {
             ...user,
             quizMarks: action.payload.quizMarks,
