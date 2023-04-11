@@ -1,8 +1,8 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import StudentNav from "../StudentNav/StudentNav";
 import MyPosition from "./comp/MyPosition";
 import { useGetUsersQuery } from "../../../../features/auth/authApi";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addUsers,
   getPosition,
@@ -16,7 +16,7 @@ import TBody from "./comp/TBody";
 const StudentLeaderBoard = () => {
   const dispatch = useDispatch();
   const { data, isSuccess } = useGetUsersQuery(undefined, {
-    refetchOnMountOrArgChange: true
+    refetchOnMountOrArgChange: true,
   });
   // new
   useEffect(() => {
@@ -64,7 +64,7 @@ const StudentLeaderBoard = () => {
         totalMarks,
       })
     );
-    dispatch(getPosition())
+    dispatch(getPosition());
   });
 
   return (

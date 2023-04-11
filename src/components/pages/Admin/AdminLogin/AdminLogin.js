@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  useAdminLoginMutation,
-  useLoginMutation,
-} from "../../../../features/auth/authApi";
+import { useAdminLoginMutation } from "../../../../features/auth/authApi";
 import { clearAdminError } from "../../../../features/auth/authSlice";
 import Error from "../../../../utils/Error";
 
@@ -141,7 +138,7 @@ const AdminLogin = () => {
                 type="submit"
                 class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
               >
-                Sign in
+                {isLoading ? "Loading..." : "Sign in"}
               </button>
             </div>
             {form?.error && <Error message={form?.error} />}
